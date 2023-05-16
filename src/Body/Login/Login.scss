@@ -1,0 +1,74 @@
+.Login{
+    color: var(--login-title-color);
+    display: block;
+    height: 100%;
+}
+
+.Input {
+    margin-bottom: 1em;
+}
+
+.forgotPass{
+    display: block;
+    font-size: 9pt;
+    margin-left: auto;
+    width: min-content;
+    white-space: nowrap;
+    margin-right: 0;
+    margin-top: -1em;
+    margin-bottom: 1em;
+}
+
+.userFields{
+    width: 17em;
+    margin: auto;
+}
+
+.twoFields{
+    border-radius: var(--first-round);
+    background-color: var(--login-remember-background);
+    display: flex;
+    width: 17em;
+    height: var(--global-width);
+    align-items: center;
+    .Switch{
+        scale: 1.25;
+        width: max-content;
+        height: min-content;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 0.25em;
+    }
+    .authButton{
+        display: inline-block;
+        position: relative;
+        margin-right: 0;
+        margin-left: auto;
+        background-color: var(--login-auth-background);
+        border: none;
+        border-top-right-radius: var(--first-round);
+        border-bottom-right-radius: var(--first-round);
+        clip-path: polygon(0 100%, 25% 0, 100% 0%, 100% 100%);
+        font-family: "Myriad Pro";
+        font-size: 11pt;
+        color: var(--login-auth-text-color);
+        width: 100%;
+        height: 100%;
+    }
+    .rememberHint{
+        font-size: 11pt;
+        margin-left: 1em;
+        font-family: "Myriad Pro";
+        color: var(--login-remember-text-color);
+    }
+}
+
+.textFields{
+    font-family: "Myriad Pro";
+    font-size: 8pt;
+    color: var(--login-bottom-text-color);
+    display: block;
+    bottom: 3vh;
+    margin: auto;
+    width: 90vw;
+}

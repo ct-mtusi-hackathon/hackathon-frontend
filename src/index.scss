@@ -1,0 +1,94 @@
+@font-face{
+  font-family: "aqum-2";
+  src : url("./assets/fonts/aqum-2.otf");
+}
+@font-face{
+  font-family: "Myriad Pro";
+  src : url("./assets/fonts/Myriad Pro.ttf");
+}
+body {
+  margin: 0;
+  font-family: "aqum-2";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/pictures/backgeound_mobile.svg') no-repeat right;
+  background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root{
+  width: 100vw;
+  height: 100vh;
+}
+
+html{
+  --first-round: 8px;
+  --global-width: 2.25em;
+  --background: #fff;
+  --first-color: #332974;
+  --second-color: #9994b9;
+  --three-color: #605c93;
+  --four-color: #665aff;
+  --text-color: #fff;
+}
+
+html[data-theme="light"]{
+
+  --header-color: var(--four-color);
+  --header-line-color: var(--second-color);
+  --title-color: #fff;
+  --header-buttons-background: var(--second-color);
+  --header-buttons-color: var(--text-color);
+  --header-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+
+  --input-icon-base-color: var(--second-color);
+  --input-border-color: var(--second-color);
+
+  --switch-cirle-color: var(--four-color);
+  --switch-background-color: var(--background);
+  --switch-border-color: transparent;
+
+  --login-title-color: var(--first-color);
+  --login-remember-background: var(--three-color);
+  --login-auth-background: var(--second-color);
+  --login-auth-text-color: var(--text-color);
+  --login-remember-text-color: var(--second-color);
+
+  --login-bottom-text-color: var(--three-color);
+
+}
+
+html[data-theme="vimpaired"]{
+
+  --header-color: transparent;
+  --header-line-color: transparent;
+  --title-color: #000;
+  --header-buttons-background: #000;
+  --header-buttons-color: #fff;
+  --header-icon-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
+  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+
+  --input-icon-base-color: #000;
+  --input-border-color: #000;
+  --input-icon-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
+
+  --switch-cirle-color: #000;
+  --switch-background-color: #fff;
+  --switch-border-color: #000;
+
+  --login-title-color: #000;
+  --login-remember-background: #fff;
+  --login-auth-background: #000;
+  --login-auth-text-color: #fff;
+  --login-remember-text-color: #000;
+
+  --login-bottom-text-color: #000;
+
+}

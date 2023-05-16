@@ -1,0 +1,45 @@
+.inputText{
+    color: var(--second-color);
+    font-size: 100%;
+    min-width: 15em;
+    margin: 0;
+    font-family: "Myriad Pro";
+    border: none;
+    border-radius: var(--first-round);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-weight: bold;
+}
+
+.inputText::placeholder{
+    color: var(--second-color);
+    font-weight: normal;
+}
+
+.inputText:focus{
+    outline: none;
+    text-decoration: underline;
+}
+
+.iconBase{
+    background-color: var(--input-icon-base-color);
+    border-radius: var(--first-round);
+    min-height: var(--global-width);
+    min-width: var(--global-width);
+    display: inline-flex;
+    .inputIcon{
+        height: calc(var(--global-width) - 0.75em);
+        width: calc(var(--global-width) - 0.75em);
+        filter: var(--input-icon-filter);
+        align-self: center;
+        margin: auto;
+    }
+}
+
+.Input{
+    display:flex;
+    width: min-content;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--first-round);
+    min-width: 15em;
+}

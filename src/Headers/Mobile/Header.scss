@@ -1,0 +1,67 @@
+.Header{
+    background-color: var(--header-color);
+    height: 12vh;
+    width: 100vw;
+    font-family: 'aqum-2';
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 0.25em solid var(--header-line-color);
+}
+
+.logo{
+    position: fixed;
+    top: 2vh;
+}
+
+.logo *{
+    display: inline-Block;
+}
+
+.logoIcon{
+    height: 8vh;
+    filter: var(--header-icon-filter);
+}
+
+.title{
+    position: fixed;
+    text-align: left;
+    color: var(--title-color);
+    transform: translate(0, 1vh);
+}
+
+.title a{
+    display: block;
+    margin: 0;
+    line-height: 1em;
+}
+
+.buttonBlock{
+    display: block;
+    margin-left: auto;
+    margin-right: 0.5em;
+    width: max-content;
+}
+
+.buttonBlock button{
+    display: inline-table;
+    width: 3em;
+    height: 3em;
+    border-radius: 12px;
+    background-color: var(--header-buttons-background);
+    border: none;
+    font-family: 'aqum-2';
+    color: var(--header-buttons-color);
+    margin-left: 1em;
+    vertical-align: bottom;
+}
+
+button *{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.eyeIcon{
+    filter: var(--header-eye-filter);
+}
