@@ -1,0 +1,109 @@
+.Settings{
+    display: block;
+    font-family: "Myriad Pro";
+
+    .profile{
+        margin-right: 0.5em;
+        .profileInfo{
+            font-size: 9pt;
+            width: fit-content;
+            color: var(--settings-user-color);
+            margin-left: auto;
+            margin-right: 0;
+        }
+        .Button{
+            margin-left: auto;
+            margin-right: 0;
+            .ButtonCustom{
+            font-family: "Myriad Pro";
+            font-size: 11pt;
+            }
+        }
+    }
+
+    .Bodytitle{
+        width: 100vw;
+        .titleText{
+            color: var(--body-title-color);
+            text-align: center;
+            font-size: 15.5pt;
+            font-weight: bold;
+        }
+    }
+
+    .profilePhoto{
+        width: 9em;
+        height: 9em;
+        margin: auto;
+        margin-top: 1em;
+        background-color: var(--profile-photo-background-color);
+        border: 1px inset black;
+        border-radius: 50%;
+        .photo{
+            border-radius: 50%;
+            width: 6em;
+            height: 6em;
+            padding: 1.5em;
+            filter: var(--profile-photo-filter);
+        }
+        .editPhotoButton{
+            transform: translateY(-9.25em);
+            background-color: var(--profile-photo-edit-color);
+            height: 9em;
+            width: 9em;
+            border-radius: 50%;
+            clip-path: inset(6.5em 0 0 0);
+        }
+        
+        .editIcon{
+            background-color: transparent;
+            width: 1.5em;
+            transform: translateY(7em);
+            filter: var(--profile-photo-edit-filter);
+        }
+    }
+
+    .welcomeText{
+
+        .welcomeName{
+            font-family: "aqum-2";
+            color: var(--welcome-name-color);
+            font-size: 18pt;
+        }
+        .welcomeStudentInfo{
+            color: var(--welcome-group-color);
+            font-size: 12pt;
+            margin-bottom: 1.25em;
+        }
+    }
+
+    .settingsUserFields{
+        height: max-content;
+        padding-bottom: 2em;
+        .SettingsFieldsMinimal{
+            width: max-content;
+            height: max-content;
+            margin: auto;
+            .Input{
+                margin-top: 1em;
+            }
+            .reuireInfo{
+                font-size: 12pt;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 1.5em;
+                color: var(--settings-require-info-color);
+            }
+            .Button{
+                width: 100%;
+                height: max-content;
+                margin-top: 0.2em;
+                .ButtonCustom{
+                    width: 100%;
+                    font-family: "Myriad Pro";
+                    font-size: 12pt;
+                }
+            }
+        }
+    }
+}

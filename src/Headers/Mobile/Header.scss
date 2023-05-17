@@ -1,33 +1,34 @@
 .Header{
     background-color: var(--header-color);
-    height: 12vh;
-    width: 100vw;
+    height: 5em;
+    width: 100%;
     font-family: 'aqum-2';
-    display: table-cell;
+    display: grid;
     vertical-align: middle;
     text-align: center;
     border-bottom: 0.25em solid var(--header-line-color);
 }
 
 .logo{
-    position: fixed;
-    top: 2vh;
-}
-
-.logo *{
-    display: inline-Block;
+    grid-row: 1;
+    margin-top: auto;
+    margin-bottom: 0.25em;
+    display: inline-block;
+    width: max-content;
 }
 
 .logoIcon{
-    height: 8vh;
+    display: inline-Block;
+    height: 4em;
     filter: var(--header-icon-filter);
 }
 
 .title{
-    position: fixed;
+    display: inline-Block;
     text-align: left;
     color: var(--title-color);
-    transform: translate(0, 1vh);
+    margin-top: auto;
+    margin-bottom: 0.1em;
 }
 
 .title a{
@@ -37,10 +38,12 @@
 }
 
 .buttonBlock{
+    grid-row: 1;
     display: block;
     margin-left: auto;
     margin-right: 0.5em;
-    width: max-content;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .buttonBlock button{

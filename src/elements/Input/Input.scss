@@ -4,11 +4,18 @@
     min-width: 15em;
     margin: 0;
     font-family: "Myriad Pro";
+    background-color: transparent;
     border: none;
     border-radius: var(--first-round);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     font-weight: bold;
+}
+
+.inputText::-webkit-outer-spin-button,
+.inputText::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .inputText::placeholder{
@@ -21,12 +28,25 @@
     text-decoration: underline;
 }
 
+.Input:has(.inputText:invalid){
+    background-color: mix(#fff, rgb(255, 128, 128));
+}
+
 .iconBase{
     background-color: var(--input-icon-base-color);
-    border-radius: var(--first-round);
+    border-radius: calc(var(--first-round) - 1px);
     min-height: var(--global-width);
     min-width: var(--global-width);
     display: inline-flex;
+    position: relative;
+    .requireStarIcon{
+        position: absolute;
+        top: -0.5em;
+        left: -0.25em;
+        color: var(--input-require-color);
+        font-size: 17pt;
+        font-family: "aqum-2";
+    }
     .inputIcon{
         height: calc(var(--global-width) - 0.75em);
         width: calc(var(--global-width) - 0.75em);
@@ -42,4 +62,5 @@
     border: 1px solid var(--input-border-color);
     border-radius: var(--first-round);
     min-width: 15em;
+    background-color: white;
 }

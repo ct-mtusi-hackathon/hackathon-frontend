@@ -9,8 +9,8 @@ const header = (props)=> {
       <div className='logo'>
         <img src={Logo} className='logoIcon'></img>
         <div className='title'>
-          <a style={{fontSize:"250%", }}>МТУСИ</a>
-          <a style={{fontSize:"60%"}}>колледж телекоммуникаций</a>
+          <a style={{fontSize:"28pt", marginBottom:"0.1em"}}>МТУСИ</a>
+          <a style={{fontSize:"6pt", marginBottom:"0.1em"}}>колледж телекоммуникаций</a>
         </div>
       </div>
       <div className='buttonBlock'>
