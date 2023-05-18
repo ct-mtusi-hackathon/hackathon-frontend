@@ -1,0 +1,60 @@
+.HMHeader{
+    background-color: var(--header-color);
+    height: 5em;
+    width: 100%;
+    font-family: 'aqum-2';
+    display: block;
+    border-bottom: 0.25em solid var(--header-line-color);
+    position: relative;
+    .HMlogo{
+        position: absolute;
+        display: inline;
+        left: 0.25em;
+        bottom: 0.25em;
+        width: max-content;
+        height: max-content;
+        .HMlogoIcon{
+            float: left;
+            height: 4em;
+            filter: var(--header-icon-filter);
+        }
+        .HMtitle{
+            float: left;
+            color: var(--title-color);
+            margin-top: 13.67px;
+            .HMTiteText{
+                display: block;
+                text-align: left;
+                line-height: 1em;
+                margin-bottom:"0.1em"
+            }
+        }
+    }
+}
+
+
+
+
+.HMbuttonBlock{
+    display: block;
+    right: 0.5em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    .HMbuttonBlockBTN{
+        display: inline-table;
+        width: 3em;
+        height: 3em;
+        border-radius: 12px;
+        background-color: var(--header-buttons-background);
+        border: none;
+        font-family: 'aqum-2';
+        color: var(--header-buttons-color);
+        margin-left: 1em;
+        vertical-align: bottom;
+        .eyeIcon{
+            filter: var(--header-eye-filter);
+            width: 100%;
+        }
+    }
+}

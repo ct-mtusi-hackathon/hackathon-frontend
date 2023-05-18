@@ -15,7 +15,7 @@ body {
   height: 100%;
   background: url('./assets/pictures/background_mobile.svg') no-repeat right;
   background-size: cover;
-  background-position: 0 30vh;
+  background-position: 0 -10%;
 }
 
 code {
@@ -65,7 +65,7 @@ html[data-theme="light"]{
   --login-remember-background: var(--three-color);
   --login-auth-background: var(--second-color);
   --login-auth-text-color: var(--text-color);
-  --login-remember-text-color: var(--second-color);
+  --login-remember-text-color: var(--text-color);
 
   --login-bottom-text-color: var(--three-color);
 
@@ -78,6 +78,9 @@ html[data-theme="light"]{
   --welcome-name-color: var(--first-color);
   --welcome-group-color: var(--second-color);
   --settings-require-info-color: var(--first-color);
+
+  --main-text-color: var(--first-color);
+  --main-burger-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
 
 }
 
@@ -114,10 +117,14 @@ html[data-theme="vimpaired"]{
   --settings-user-color: #000;
   --profile-photo-background-color: #000;
   --profile-photo-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
-  --profile-photo-edit-color: var(--first-color);
+  --profile-photo-edit-color: #f00;
   --profile-photo-edit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
 
   --welcome-name-color: #000;
   --welcome-group-color: #000;
   --settings-require-info-color: #f00;
+  
+  --main-text-color: #000;
+  --main-burger-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
+
 }

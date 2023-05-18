@@ -1,9 +1,11 @@
-import './App.css';
-import Header from "./Headers/Mobile/Header";
-import Login from './Body/Login/Login';
+import './App.scss';
+import HeaderRegister from "./Headers/Mobile/HeaderRegister";
 import { useTheme } from './elements/useTheme';
-import Settings from './Body/Settings/Settings';
 import { UserInfo } from './common/UserInfo';
+import Settings from './Body/Settings/Settings';
+import Login from './Body/Login/Login';
+import HeaderMain from './Headers/Mobile/HeaderMain';
+import MainPage from './Body/Main/MainPage';
 
 
 
@@ -14,9 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header theme={theme} setTheme={setTheme}/>
-      <Login/>
+      <HeaderRegister theme={theme} setTheme={setTheme}/>
+      <HeaderMain/>
+      {/* <Login/> */}
       {/* <Settings user={user}/> */}
+      <MainPage/>
     </div>
   );
 }

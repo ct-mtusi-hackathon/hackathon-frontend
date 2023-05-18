@@ -1,0 +1,64 @@
+.DHheaderRegister{
+    width: 40%; //25
+    height: 100%;
+    .DHInfoHeaderBorder{
+        background-color: var(--header-line-color);
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 0, 100% 0, 44% 100%, 0 100%);
+        .DHInfoHeader{
+            position: relative;
+            background-color: var(--header-color);
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 95% 0, 42% 100%, 0 100%);
+            
+            .DHbuttonBlock{
+                position: absolute;
+                top: auto;
+                bottom: 0.5em;
+                .Button{
+                    display: inline-block;
+                    margin: 0.5em;
+                    .ButtonCustom{
+                        padding: 0;
+                        height: 3em;
+                        width: 3em;
+                    }
+                    .eyeIcon{
+                        height: 90%;
+                        width: 90%;margin: auto;
+                    }
+                }
+            }
+            .DHlogo{
+                display: block;
+                width: 100%;
+                height: max-content;
+                top: 5%;
+                bottom: auto;
+                .DHlogoIcon{
+                    display: inline-block;
+                    height: 80pt;
+                }
+                .DHtitle{
+                    display: inline-block;
+                    height: 100%;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    .DHmainWord{
+                        font-size: 48pt;
+                        text-align: left;
+                        display: block;
+                    }
+                    .DHsecondoWord{
+                        font-size: 10pt;
+                        display: block;
+                        margin: 0;
+                        margin-bottom: 1pt;
+                    }
+                }
+            }
+        }
+    }
+}
