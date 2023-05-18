@@ -1,0 +1,21 @@
+.RadioSwitch{
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: 0.2s all linear;
+
+    border: 2px solid var(--radio-uncheked-border-color);
+    background-color: #fff;
+}
+
+.RadioSwitch:checked{
+    border: 8px solid var(--radio-cheked-border-color);
+}
+
+.RadioText{
+    font-family: "Myriad Pro";
+    font-size: 12pt;
+    color: var(--radio-text-color);
+    font-weight: bold;
+}

@@ -1,0 +1,49 @@
+.EBTitle{
+    padding-top: 2em;
+    position: relative;
+    bottom: 0.25em;
+    font-family: "aqum-2";
+    font-size: 12pt;
+    color: var(--event-title-color);
+}
+.EventBorder{
+    width: 80%;
+    position: relative;
+    margin: auto;
+    border-radius: var(--first-round);
+    background-color: rgba(#9994b9, 0.4);
+    text-align: left;
+    .EBCurrentEvent{
+        width: 90%;
+        margin-left: 5%;
+        max-height: 75%;
+        .EBCurrentEventTitle{
+            font-family: "aqum-2";
+            color: var(--event-title-color);
+        }
+    }
+    .EBImageBorder{
+        text-align: center;
+        padding-top: 1em;
+        .EBImage{
+            width: 90%;
+        }
+    }
+    .EBThemeText{
+        margin: 0 5%;
+        font-family: "Myriad Pro";
+        color: var(--event-text-color);
+    }
+    .EBButtons{
+        width: 90%;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin: auto;
+        .Button{
+            display: inline;
+        }
+        .IconButton img{
+            filter: var(--event-open-link-filter);
+        }
+    }
+}

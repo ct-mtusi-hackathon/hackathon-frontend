@@ -6,10 +6,12 @@ const Switch = (props)=>{
         <div className={["Switch", props.className].join(" ")}>
             <input 
                 type="checkbox" 
-                id="switch" 
+                id="switch"
+                className="SwitchInput"
                 checked={props.value} 
                 onChange={e=>props.setValue?props.setValue(e.target.checked):undefined}/>
             <label 
+                className="SwitchLabel"
                 for="switch">Toggle
                 </label>
         </div>

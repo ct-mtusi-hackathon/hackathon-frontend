@@ -55,6 +55,16 @@
         font-size: 12pt;
         color: var(--main-text-color);
     }
+    .MPSkipRadio{
+        width: min-content;
+        margin: auto;
+        margin-bottom: 0.5em;
+        .RadioButton{
+            position: relative;
+            width: max-content;
+            left: 0;
+        }
+    }
     .MPSkipButtons{
         margin: auto;
         .Button{

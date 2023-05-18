@@ -82,6 +82,16 @@ html[data-theme="light"]{
   --main-text-color: var(--first-color);
   --main-burger-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
 
+  --event-background-color: var(--second-color);
+  --event-title-color: var(--first-color);
+  --event-text-color: var(--first-color);
+
+  --radio-uncheked-border-color: var(--four-color);
+  --radio-cheked-border-color: var(--four-color);
+  --radio-background-color: var(--second-color);
+  --radio-text-color: var(--first-color);
+  --event-open-link-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+
 }
 
 html[data-theme="vimpaired"]{

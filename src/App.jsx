@@ -16,11 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <HeaderRegister theme={theme} setTheme={setTheme}/>
+      {/* <HeaderRegister theme={theme} setTheme={setTheme}/> */}
       <HeaderMain/>
       {/* <Login/> */}
       {/* <Settings user={user}/> */}
-      <MainPage/>
+      <MainPage user={user}/>
     </div>
   );
 }
