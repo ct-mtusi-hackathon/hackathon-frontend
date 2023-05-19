@@ -74,7 +74,7 @@ const MainPage = (props)=> {
                         <RadioButton>Заболел</RadioButton>
                         <RadioButton>Проспал</RadioButton>
                         <RadioButton>На мероприятии</RadioButton>
-                        <RadioButton>Не интересно</RadioButton>
+                        <RadioButton>Семейные обстоятельства</RadioButton>
                     </div>
                     <Input className='MPSkipInput' placeholder="Своя причина" src={messageIcon} vals={skipMessage}/>
                     <div className='MPSkipButtons'>
