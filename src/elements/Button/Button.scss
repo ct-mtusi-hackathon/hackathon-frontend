@@ -1,4 +1,4 @@
-.ButtonCustom{
+.Button{
     padding: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
@@ -8,9 +8,4 @@
     font-family: 'aqum-2';
     color: var(--buttons-color);
     vertical-align: bottom;
-}
-
-.Button{
-    width: min-content;
-    height: min-content;
 }

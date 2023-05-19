@@ -1,0 +1,21 @@
+.Coin{
+    display: inline;
+    color: var(--coin-color);
+    font-weight: bold;
+    .CoinIcon{
+        margin-left: 0.1em;
+        vertical-align: middle;
+        height: 1em;
+        filter: var(--coin-icon-filter);
+    }
+    .CoinIcon:hover{
+        animation: tilt-n-move-shaking 0.25s infinite;
+    }
+}
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5%, 5%) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5%, 5%) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }

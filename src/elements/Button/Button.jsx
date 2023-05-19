@@ -3,9 +3,7 @@ import "./Button.scss"
 
 const Button = (props)=> {
   return (
-      <div className='Button'>
-        <button {...props} className='ButtonCustom'/>
-      </div>
+        <button {...props} className='Button'/>
   )
 }
 

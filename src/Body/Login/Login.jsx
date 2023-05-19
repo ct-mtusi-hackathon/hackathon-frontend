@@ -4,14 +4,20 @@ import Input from '../../elements/Input/Input';
 import Switch from '../../elements/Switch/Switch';
 import accountIcon from '../../assets/icons/account.svg';
 import passwordIcon from '../../assets/icons/password.svg';
+import Main from '../../Pages/Main';
+import { UserInfo } from '../../common/UserInfo';
 
 const Login = (props)=> {
     const login = useState("");
     const password = useState("");
     const remember = useState(false);
 
-    const authEvent = ()=>{
-      console.log(remember[0]);
+    const authEvent = async ()=>{
+      const result = await props.user.login(login[0], password[0]);
+      if(result)
+        props.setCurrentPage(<Main {...props} user={new UserInfo("katerina4cat")}/>);
+      else
+        alert("Неправильный логин или пароль!");
     }
 
   return (

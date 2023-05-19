@@ -1,16 +1,15 @@
 .IconButton{
-    display: inline-table;
+    display: inline-block;
     width: 3em;
     height: 3em;
-    border-radius: 12px;
+    border-radius: var(--first-round);
     background-color: var(--header-buttons-background);
     border: none;
     font-family: 'aqum-2';
     color: var(--header-buttons-color);
-    margin-left: 1em;
     vertical-align: bottom;
     .ButtonIconImage{
-        filter: var(--header-eye-filter);
         width: 100%;
+        vertical-align: middle;
     }
 }

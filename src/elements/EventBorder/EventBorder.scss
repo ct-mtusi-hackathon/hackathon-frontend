@@ -36,14 +36,33 @@
     }
     .EBButtons{
         width: 90%;
-        margin-top: 1em;
-        margin-bottom: 1em;
         margin: auto;
+        padding-bottom: 0.1em;
+        padding-top: 0.5em;
         .Button{
             display: inline;
+            height: 2.5em;
+            width: calc(100% - 3.5em);
         }
-        .IconButton img{
-            filter: var(--event-open-link-filter);
+        .IconButton{
+            height: 2.5em;
+            width: 2.5em;
+            margin-left: 1em;
+            .ButtonIconImage{
+                filter: var(--event-open-link-filter);
+            }
+        }
+    }
+    .EBEventRewards{
+        width: max-content;
+        margin: auto;
+        color: var(--event-reward-text-color);
+        padding-bottom: 1em;
+        .EBRewardInfo{
+            font-family: "Myriad Pro";
+            display: inline;
+            font-size: 9pt;
+            font-weight: bold;
         }
     }
 }

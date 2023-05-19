@@ -30,4 +30,8 @@
     margin-top: 1em;
     margin-bottom: 1em;
     filter: var(--main-burger-filter);
+    transition: all 0.25s ease-in-out;
+}
+.HMBurgerMenuOpen{
+    transform: rotate(90deg);
 }

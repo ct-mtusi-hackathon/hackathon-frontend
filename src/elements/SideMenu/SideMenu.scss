@@ -1,0 +1,46 @@
+.SideMenu{
+    margin-top: 0.5em;
+    width: 100%;
+    height: max-content;
+    color: var(--menu-text-color);
+    .SMUserInfo{
+        width: max-content;
+        margin-left: auto;
+        margin-right: 5%;
+        
+    .SMUserStats{
+        display: inline-block;
+        .SMuserName{
+            font-size: 14pt;
+        }
+        .Coin{
+            font-size: 14pt;
+        }
+    }
+    .ProfileImage{
+        width: 3em;
+        height: 3em;
+        display: inline-block;
+        margin-left: 0.5em;
+        margin-top: 0.1em;
+    }
+    .IconButton{
+        margin-left: 1em;
+        margin-bottom: 0.75em;
+    }
+    }
+    .SMElement{
+        border-bottom: 2px solid var(--second-color);
+        text-align: right;
+        padding-right: 1em;
+        vertical-align: baseline;
+        font-size: 16pt;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+    }
+    .SMElementHeader{
+        min-height: min-content;
+        border-top: 2px solid var(--second-color);
+        font-size: 14pt;
+    }
+}

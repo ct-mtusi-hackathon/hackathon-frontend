@@ -2,7 +2,6 @@ import React from 'react'
 import "./HeaderMain.scss"
 import "./HeaderRegister.scss"
 import Logo from '../../assets/icons/icon.svg';
-import Button from '../../elements/Button/Button';
 import BurgerIcon from '../../assets/icons/burger.svg'
 
 const HeaderMain = (props)=> {
@@ -20,7 +19,7 @@ const HeaderMain = (props)=> {
                 <div className='HMhelperTitleText'>помощник</div>
             </div>
         </div>
-        <div className='HMBurgerMenu' onClick={x=>console.log("testse")}>
+        <div className={`HMBurgerMenu ${props.menu[0]?"HMBurgerMenuOpen":""}`} onClick={()=>props.menu[1](!props.menu[0])}>
             <img src={BurgerIcon} style={{alignSelf:"center"}}></img>
         </div>
     </div>

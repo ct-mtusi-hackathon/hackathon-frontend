@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Settings.scss"
+import "./EditProfileInfo.scss"
 import Button from '../../elements/Button/Button';
 import EditIcon from '../../assets/icons/edit.svg';
 import EmailIcon from '../../assets/icons/email.svg';
@@ -9,8 +9,9 @@ import PasswordIcon from '../../assets/icons/password.svg';
 import TwoPasswordIcon from '../../assets/icons/twoPassword.svg';
 import TelegramIcon from '../../assets/icons/Telegram.svg';
 import Input from '../../elements/Input/Input';
+import Main from '../../Pages/Main';
 
-const Settings = (props)=> {
+const EditProfileInfo = (props)=> {
     const email = [...useState(""),...useState(false)];
     const phone = [...useState(""),...useState(false)];
     const login = [...useState(""),...useState(false)];
@@ -23,6 +24,7 @@ const Settings = (props)=> {
         phone[3](true);
         password[3](true);
         twopassword[3](true);
+        props.setCurrentPage(<Main {...props}/>);
     }
 
 
@@ -67,11 +69,11 @@ const Settings = (props)=> {
             <Input placeholder="Повторите пароль" src={TwoPasswordIcon} vals={twopassword} type='password' pattern={password[0]} require={true}/>
             <Input placeholder="Профиль Telegram" src={TelegramIcon} vals={telegram}/>
             <div className='reuireInfo'>* Обязательно к заполнению</div>
-            <Button onClick={nextEvent}>Продолжить</Button>
+            <Button onClick={nextEvent}>Сохранить</Button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Settings;
+export default EditProfileInfo;

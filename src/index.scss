@@ -91,6 +91,16 @@ html[data-theme="light"]{
   --radio-background-color: var(--second-color);
   --radio-text-color: var(--first-color);
   --event-open-link-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  
+  --coin-icon-filter: none;
+  --event-reward-text-color: var(--first-color);
+  --coin-color: #ffab57;
+
+  --event-slider-dot-color: var(--second-color);
+  --event-slider-dot-selected-color: var(--first-color);
+
+  --menu-background-color: var(--first-color);
+  --menu-text-color: #fff;
 
 }
 
@@ -137,4 +147,6 @@ html[data-theme="vimpaired"]{
   --main-text-color: #000;
   --main-burger-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
 
+
+  --coin-icon-filter: hue-rotate(40deg) contrast(150%);
 }

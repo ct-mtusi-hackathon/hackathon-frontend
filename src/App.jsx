@@ -1,26 +1,21 @@
 import './App.scss';
-import HeaderRegister from "./Headers/Mobile/HeaderRegister";
-import { useTheme } from './elements/useTheme';
+import Login from './Pages/Login';
 import { UserInfo } from './common/UserInfo';
-import Settings from './Body/Settings/Settings';
-import Login from './Body/Login/Login';
-import HeaderMain from './Headers/Mobile/HeaderMain';
-import MainPage from './Body/Main/MainPage';
+import { useTheme } from './elements/useTheme';
+import { useEffect, useState } from 'react';
 
 
 
 function App() {
-  document.documentElement.setAttribute('data-theme', "light");
   const [theme,setTheme] =  useTheme();
-  const user = new UserInfo("katerina4cat");
-
+  const [CurrentPage, setCurrentPage] = useState(undefined);
+  const user = new UserInfo();
+  useEffect(()=>{
+    setCurrentPage(<Login setCurrentPage={setCurrentPage} user={user} theme={theme} setTheme={setTheme}/>);
+  },1);
   return (
     <div className="App">
-      {/* <HeaderRegister theme={theme} setTheme={setTheme}/> */}
-      <HeaderMain/>
-      {/* <Login/> */}
-      {/* <Settings user={user}/> */}
-      <MainPage user={user}/>
+        {CurrentPage}
     </div>
   );
 }

@@ -1,14 +1,43 @@
-import React from "react"
+import React, { useState } from "react"
 import "./EventBorder.scss"
 import Button from "../Button/Button";
 import openLinkIcon from "../../assets/icons/openLink.svg"
 import IconButton from "../Button/IconButton";
+import Coin from "../Coin/Coin";
 
 const EventBorder = (props)=> {
     const ev = props.eventInfo;
     const user = props.user;
+    const [touchPosition, setTouchPosition] = useState(null)
+
+    const handleTouchStart = (e) => {
+        const touchDown = e.touches[0].clientX
+        setTouchPosition(touchDown)
+    }
+    const handleTouchMove = (e) => {
+        const touchDown = touchPosition
+    
+        if(touchDown === null) {
+            return
+        }
+    
+        const currentTouch = e.touches[0].clientX
+        const diff = touchDown - currentTouch
+    
+        if (diff > 5) {
+            props.next()
+        }
+    
+        if (diff < -5) {
+            props.prev()
+        }
+    
+        setTouchPosition(null)
+    }
   return (
-    <div>    
+    <div {...props}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}>    
         <div className='EBTitle'>
             {ev.getNameFront()} мероприятие
         </div>
@@ -28,12 +57,18 @@ const EventBorder = (props)=> {
             </div>
 
             <div className="EBButtons">
-                <Button className="EBSubscribe">{user.subscribedToEvent(ev.id)?"Учавствовать":"Отписаться"}</Button>
-                <IconButton className="EBOpenLink" src={openLinkIcon}/>
+                <Button className="EBSubscribe">{user.subscribedToEvent(ev.id)?"Отписаться":"Учавствовать"}</Button>
+                <IconButton className="EBOpenLink" src={openLinkIcon} onClick={o=>window.open(ev.eventURL)}/>
             </div>
 
-            <div className='EBEventScrollList'>
-
+            <div className='EBEventRewards'>
+                <div className="EBRewardInfo">
+                    {"Начислим "}
+                    <Coin count={ev.registerReward}/>
+                    {" за участие и ещё "}
+                    <Coin count={ev.winReward}/>
+                    {" за победу"}
+                </div>
             </div>
         </div>
     </div>

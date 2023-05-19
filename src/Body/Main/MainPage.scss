@@ -1,4 +1,24 @@
 .MainPage{
+    position: relative;
+    .MPEventsSlider{
+        height: 1.2em;
+        margin-top: 0.75em;
+        .MPEventSliderDot{
+            margin: 0.2em;
+            display: inline-block;
+            vertical-align: middle;
+            width: 0.6em;
+            height: 0.6em;
+            border-radius: 50%;
+            background-color: var(--event-slider-dot-color);
+        }
+        .MPEventSliderDotSelected{
+            transition: all 0.5s;
+            width: 1em;
+            height: 1em;
+            background-color: var(--event-slider-dot-selected-color);
+        }
+    }
     .MPattendance{
         margin-top: 2em;
         .MPtwoFields{
@@ -46,7 +66,23 @@
             }
         }
     }
+    .MPRightMenu{
+        position: fixed;
+        right: -70%;
+        top: 0;
+        margin-top: 5.25em;
+        width: 70%;
+        height: 100vh;
+        background: url('../../assets/pictures/background_menu.svg') no-repeat;
+        background-position: left 1em top 4em;
+        background-color: var(--menu-background-color);
+        transition: all 0.25s ease-in-out;
+    }
+    .MPRigthMenuOpen{
+        right: 0%;
+    }
 }
+
 .MPSkipsolution{
     .MPSkipInfo{
         display: block;
