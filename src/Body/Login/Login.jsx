@@ -8,14 +8,26 @@ import Main from '../../Pages/Main';
 import { UserInfo } from '../../common/UserInfo';
 
 const Login = (props)=> {
+  
+  const users=[
+    new UserInfo().init2(
+        "Lunya",
+        "123",
+        "Вячеслав",
+        "ИСП11-121АП",
+        5,
+        1
+    ),
+    //Сюда ещё можно аккаунты
+  ]
     const login = useState("");
     const password = useState("");
     const remember = useState(false);
 
     const authEvent = async ()=>{
-      const result = await props.user.login(login[0], password[0]);
+      const result = await props.user.login(login[0], password[0], users);
       if(result)
-        props.setCurrentPage(<Main {...props} user={new UserInfo("katerina4cat")}/>);
+        props.setCurrentPage(<Main {...props} user={result}/>);
       else
         alert("Неправильный логин или пароль!");
     }

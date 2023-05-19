@@ -6,22 +6,18 @@ const deltaName = {
 }
 
 export class EventBase{
-    constructor(Title, Description, Date)
+    constructor(Title, Description, date, picture, site, coinReg, coinWin)
     {
         this.Title = Title;
         this.Text = Description;
-        this.startDate = Date;
-        
-        this.test();
-    }
+        this.startDate = date;
 
-    test = ()=>{
-        this.id = 1;
-        this.URL = "https://img.rl0.ru/afisha/e630x315p0x0f1260x720q85i/s2.afisha.ru/mediastorage/89/90/9a6f49ac22c042c6b13b44f99089.jpeg"
-        this.eventURL = "https://mtuci.ru/about_the_university/news/7539/";
+        this.URL = picture
+        this.eventURL = site;
         
-        this.registerReward = 1150;
-        this.winReward = 7500;
+        this.registerReward = coinReg;
+        this.winReward = coinWin;
+        this.id = Date.now()-date;
     }
 
     getNameFront = ()=>{
