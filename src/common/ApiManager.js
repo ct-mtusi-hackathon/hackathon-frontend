@@ -10,10 +10,7 @@ export class ApiManager {
 
   setToken(token) {
     this.token = token;
-    this.config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-    // axios.defaults.params = { headers: { Authorization: `Bearer ${token}` } };
+    axios.defaults.params = { headers: { Authorization: `Bearer ${token}` } };
   }
 
   async refreshToken() {
@@ -50,7 +47,7 @@ export class ApiManager {
 
   async getUserInfo() {
     try {
-      const result = await axios.get(`/api/v1/users/profile/`, this.config);
+      const result = await axios.get(`/api/v1/users/profile/`);
       if (result.status !== 200) return false;
       return result;
     } catch {
@@ -61,10 +58,7 @@ export class ApiManager {
   async getUserSubscribes(userid) {
     try {
       return (
-        await axios.get(
-          `/api/v1/events/${userid}/register_on_event/`,
-          this.config
-        )
+        await axios.get(`/api/v1/events/${userid}/register_on_event/`)
       ).data.map((x) => x.id);
     } catch {
       return false;
@@ -74,11 +68,8 @@ export class ApiManager {
   async subscribeToEvent(eventID) {
     try {
       return (
-        (
-          await axios.get(`/api/v1/events/${eventID}/register_on_event/`, {
-            ...this.config,
-          })
-        ).status === 200
+        (await axios.get(`/api/v1/events/${eventID}/register_on_event/`))
+          .status === 200
       );
     } catch {
       return false;
