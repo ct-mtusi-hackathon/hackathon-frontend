@@ -16,7 +16,7 @@ const HeaderRegister = (props)=> {
       <div className='HMbuttonBlock'>
         <button className='HMbuttonBlockBTN'>RU</button>
         <button className='HMbuttonBlockBTN'>FAQ</button>
-        <button className='HMbuttonBlockBTN' onClick={()=>{props.setTheme(props.theme=="vimpaired"?"light":"vimpaired")}}><img src={Eye} className='eyeIcon'></img></button>
+        <button className='HMbuttonBlockBTN' onClick={()=>{props.theme.setTheme(props.theme.theme=="vimpaired"?"light":"vimpaired");}}><img src={Eye} className='eyeIcon'></img></button>
       </div>
     </div>
   )

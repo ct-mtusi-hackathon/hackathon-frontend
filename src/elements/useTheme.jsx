@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from 'react'
 
 
 export const useTheme = () => {
+  console.log("test")
   const [theme, setTheme] = useState(
     localStorage.getItem('app-theme') || "light"
   )
@@ -11,5 +12,5 @@ export const useTheme = () => {
     localStorage.setItem('app-theme', theme)
   }, [theme])
 
-  return [ theme, setTheme ];
+  return { theme:theme, setTheme:setTheme };
 }
