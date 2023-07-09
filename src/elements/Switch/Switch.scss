@@ -29,7 +29,7 @@
 }
 
 .SwitchInput:checked + .SwitchLabel {
-  background: var(--switch-background-color);
+  background: var(--switch-checked-background-color);
 }
 
 .SwitchInput:checked + .SwitchLabel:after {
