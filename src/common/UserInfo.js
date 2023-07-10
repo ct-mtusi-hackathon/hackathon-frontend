@@ -5,6 +5,11 @@ export class UserInfo {
     this.apiManager = new ApiManager();
   }
 
+  async restoreSession() {
+    if (this.apiManager.token) return await this.init();
+    return false;
+  }
+
   init2(l, p, n, g, c, i) {
     this.Login = l;
     this.pass = p;
@@ -17,16 +22,18 @@ export class UserInfo {
 
   async init() {
     const result = await this.apiManager.getUserInfo();
-    this.Login = result.telegramUsername;
-    this.name = result.firstName;
-    this.lastName = result.lastName;
-    this.patronymic = result.patronymic;
-    this.group = result.group;
-    this.coins = result.coins;
-    this.id = result.id;
-    this.email = result.email;
-    this.phoneNumber = result.phoneNumber;
+    if (result.status !== 200) return false;
+    this.Login = result.data.telegramUsername;
+    this.name = result.data.firstName;
+    this.lastName = result.data.lastName;
+    this.patronymic = result.data.patronymic;
+    this.group = result.data.group;
+    this.coins = result.data.coins;
+    this.id = result.data.id;
+    this.email = result.data.email;
+    this.phoneNumber = result.data.phoneNumber;
     this.subscribedEvents = await this.apiManager.getUserSubscribes();
+    return true;
   }
 
   async login(login, password) {
@@ -38,7 +45,8 @@ export class UserInfo {
     return false;
   }
 
-  subscribeToEvent = (eventID) => {
-    this.apiManager.subscribeToEvent(eventID);
+  subscribedToEvent = (eventID) => {
+    // this.apiManager.subscribedToEvent(eventID);
+    return false;
   };
 }

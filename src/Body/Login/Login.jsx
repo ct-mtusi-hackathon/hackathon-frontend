@@ -13,7 +13,7 @@ const Login = (props) => {
 
   const authEvent = async () => {
     const result = await props.user.login(login[0], password[0]);
-    if (result) props.setCurrentPage(<Main {...props} user={result} />);
+    if (result) props.setCurrentPage(<Main {...props} />);
     else alert("Неправильный логин или пароль!");
   };
 

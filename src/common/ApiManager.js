@@ -2,15 +2,27 @@ import axios from "axios";
 
 export class ApiManager {
   constructor() {
-    this.refreshtoken = localStorage.getItem("refreshtoken") || undefined;
-    this.loaded = false;
-    this.refreshToken();
-    axios.defaults.baseURL = "http://localhost:8000/";
+    this.loaded = true;
+    this.setToken(
+      localStorage.getItem("token") || undefined,
+      localStorage.getItem("refreshtoken") || undefined
+    );
+    axios.defaults.baseURL = "http://katerina4cat.ru:8000/";
   }
 
-  setToken(token) {
+  setToken(token, refresh) {
     this.token = token;
-    axios.defaults.params = { headers: { Authorization: `Bearer ${token}` } };
+    this.refreshtoken = refresh;
+    localStorage.setItem("refreshtoken", refresh);
+    localStorage.setItem("token", token);
+    this.config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+  }
+
+  clearTokens() {
+    localStorage.removeItem("refreshtoken");
+    localStorage.removeItem("token");
   }
 
   async refreshToken() {
@@ -20,8 +32,7 @@ export class ApiManager {
         refresh: this.refreshtoken,
       });
       if (result.status === 200) {
-        this.setToken(result.access);
-        localStorage.setItem("refreshtoken");
+        this.setToken(result.data.access, result.data.refresh);
       }
       this.loaded = true;
     } catch {
@@ -36,18 +47,17 @@ export class ApiManager {
         password: password,
       });
       if (result.status !== 200) return false;
-      this.setToken(result.access);
-      this.refreshtoken = result.resfresh;
-      localStorage.setItem("refreshtoken");
+      this.setToken(result.data.access, result.data.refresh);
       return true;
-    } catch {
+    } catch (ex) {
+      console.log(ex);
       return false;
     }
   }
 
   async getUserInfo() {
     try {
-      const result = await axios.get(`/api/v1/users/profile/`);
+      const result = await axios.get(`/api/v1/users/profile/`, this.config);
       if (result.status !== 200) return false;
       return result;
     } catch {
@@ -58,18 +68,24 @@ export class ApiManager {
   async getUserSubscribes(userid) {
     try {
       return (
-        await axios.get(`/api/v1/events/${userid}/register_on_event/`)
+        await axios.get(
+          `/api/v1/events/${userid}/register_on_event/`,
+          this.config
+        )
       ).data.map((x) => x.id);
     } catch {
       return false;
     }
   }
 
-  async subscribeToEvent(eventID) {
+  async subscribedToEvent(eventID) {
     try {
       return (
-        (await axios.get(`/api/v1/events/${eventID}/register_on_event/`))
-          .status === 200
+        (
+          await axios.get(`/api/v1/events/${eventID}/register_on_event/`, {
+            ...this.config,
+          })
+        ).status === 200
       );
     } catch {
       return false;
