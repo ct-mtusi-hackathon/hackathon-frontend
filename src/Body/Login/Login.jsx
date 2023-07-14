@@ -5,6 +5,7 @@ import Switch from "../../elements/Switch/Switch";
 import accountIcon from "../../assets/icons/account.svg";
 import passwordIcon from "../../assets/icons/password.svg";
 import Main from "../../Pages/Main";
+import EditProfile from "../../Pages/EditProfile";
 
 const Login = (props) => {
   const login = useState("");
@@ -12,9 +13,11 @@ const Login = (props) => {
   const remember = useState(false);
 
   const authEvent = async () => {
-    const result = await props.user.login(login[0], password[0]);
-    if (result) props.setCurrentPage(<Main {...props} />);
-    else alert("Неправильный логин или пароль!");
+    const result = await props.user.trylogin(login[0], password[0]);
+    if (result.status)
+      if (props.user.login) props.setCurrentPage(<Main {...props} />);
+      else props.setCurrentPage(<EditProfile {...props} />);
+    else props.addNotify.current(result.msg);
   };
 
   return (

@@ -10,20 +10,10 @@ export class UserInfo {
     return false;
   }
 
-  init2(l, p, n, g, c, i) {
-    this.Login = l;
-    this.pass = p;
-    this.name = n;
-    this.group = g;
-    this.coins = c;
-    this.id = i;
-    return this;
-  }
-
   async init() {
     const result = await this.apiManager.getUserInfo();
     if (result.status !== 200) return false;
-    this.Login = result.data.telegramUsername;
+    this.login = result.data.telegramUsername;
     this.name = result.data.firstName;
     this.lastName = result.data.lastName;
     this.patronymic = result.data.patronymic;
@@ -36,13 +26,21 @@ export class UserInfo {
     return true;
   }
 
-  async login(login, password) {
+  async trylogin(login, password) {
     const result = await this.apiManager.login(login, password);
     if (result) {
       this.init();
-      return true;
+      return { status: true };
     }
-    return false;
+    return { status: false, msg: "Неправильный логин или пароль!" };
+  }
+  async tryEdit(userInfo) {
+    const result = await this.apiManager.EditProfile(userInfo);
+    if (result.status) {
+      this.init();
+      return { status: true, msgs: ["Данные успешно сохранены"] };
+    }
+    return { status: false, msgs: result.msgs };
   }
 
   subscribedToEvent = (eventID) => {

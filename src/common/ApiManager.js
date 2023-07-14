@@ -54,6 +54,28 @@ export class ApiManager {
       return false;
     }
   }
+  async EditProfile(userInfo) {
+    try {
+      const result = await axios
+        .patch(`/api/v1/users/update_profile/`, userInfo, this.config)
+        .catch((res) => {
+          let f = [];
+          for (const errs of Object.values(res.response.data)) f.push(...errs);
+          return { status: res.response.status, msgs: f };
+        });
+      if (result.status !== 200)
+        return {
+          status: false,
+          msgs:
+            result.msgs.length !== 0
+              ? result.msgs
+              : ["Произошла непредвиденная ошибка!"],
+        };
+      return { status: true, data: result.data };
+    } catch {
+      return { status: false, msgs: ["Не удалось подключиться к серверу!"] };
+    }
+  }
 
   async getUserInfo() {
     try {

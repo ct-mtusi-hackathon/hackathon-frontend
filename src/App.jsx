@@ -1,7 +1,9 @@
 import "./App.scss";
+import EditProfile from "./Pages/EditProfile";
 import Login from "./Pages/Login";
 import Main from "./Pages/Main";
 import { UserInfo } from "./common/UserInfo";
+import NotifyList from "./elements/NotifyList/NotifyList";
 import { useTheme } from "./elements/useTheme";
 import { useEffect, useRef, useState } from "react";
 
@@ -9,20 +11,32 @@ function App() {
   const theme = useTheme();
   const [CurrentPage, setCurrentPage] = useState(undefined);
   const user = new UserInfo();
+  const addNotify = useRef(() => {
+    console.log("error1");
+  });
+
+  const props = {
+    setCurrentPage: setCurrentPage,
+    addNotify: addNotify,
+    user: user,
+    theme: theme,
+  };
+
   useEffect(
     () => async () => {
       if (await user.restoreSession())
-        setCurrentPage(
-          <Main setCurrentPage={setCurrentPage} user={user} theme={theme} />
-        );
-      else
-        setCurrentPage(
-          <Login setCurrentPage={setCurrentPage} user={user} theme={theme} />
-        );
+        if (user.login) setCurrentPage(<Main {...props} />);
+        else setCurrentPage(<EditProfile {...props} />);
+      else setCurrentPage(<Login {...props} />);
     },
     [theme.theme]
   );
-  return <div className="App">{CurrentPage}</div>;
+  return (
+    <div className="App">
+      {CurrentPage}
+      <NotifyList addNotify={addNotify} />
+    </div>
+  );
 }
 
 export default App;
