@@ -14,11 +14,17 @@ import Login from "../../Pages/Login";
 
 const EditProfileInfo = (props) => {
   const email = [...useState(props?.user?.email || ""), ...useState(false)];
-  const phone = [...useState(""), ...useState(false)];
-  const login = [...useState(""), ...useState(false)];
+  const phone = [
+    ...useState(props?.user?.phoneNumber || ""),
+    ...useState(false),
+  ];
+  const login = [...useState(props?.user?.login || ""), ...useState(false)];
   const password = [...useState(""), ...useState(false)];
   const twopassword = [...useState(""), ...useState(false)];
-  const telegram = [...useState(""), ...useState(false)];
+  const telegram = [
+    ...useState(props?.user?.telegram || ""),
+    ...useState(false),
+  ];
   const photoOpened = useState(false);
 
   const nextEvent = async () => {
@@ -113,7 +119,7 @@ const EditProfileInfo = (props) => {
             placeholder="Номер телефона"
             src={PhoneIcon}
             vals={phone}
-            type="number"
+            type="phone"
             require={true}
           />
           <Input placeholder="Новый логин" src={LoginIcon} vals={login} />

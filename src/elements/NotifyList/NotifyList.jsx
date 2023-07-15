@@ -7,6 +7,10 @@ const NotifyList = ({ addNotify }) => {
   useEffect(() => {
     addNotify.current = (message, error = true, picture = "", time = 2500) => {
       if (!message) return;
+      if (Array.isArray(message)) {
+        for (const msg of message) addNotify.current(msg);
+        return;
+      }
       const newElement = (
         <NotifyBlock message={message} error={error} picture={picture} />
       );

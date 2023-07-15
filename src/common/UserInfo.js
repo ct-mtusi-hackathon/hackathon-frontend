@@ -22,17 +22,18 @@ export class UserInfo {
     this.id = result.data.id;
     this.email = result.data.email;
     this.phoneNumber = result.data.phoneNumber;
+    this.telegram = result.data.telegramUsername;
     this.subscribedEvents = await this.apiManager.getUserSubscribes();
     return true;
   }
 
-  async trylogin(login, password) {
-    const result = await this.apiManager.login(login, password);
-    if (result) {
-      this.init();
+  async trylogin(login, password, remember) {
+    const result = await this.apiManager.login(login, password, remember);
+    if (result.status) {
+      await this.init();
       return { status: true };
     }
-    return { status: false, msg: "Неправильный логин или пароль!" };
+    return { status: false, msgs: result.msgs };
   }
   async tryEdit(userInfo) {
     const result = await this.apiManager.EditProfile(userInfo);

@@ -10,11 +10,13 @@ export class ApiManager {
     axios.defaults.baseURL = "http://katerina4cat.ru:8000/";
   }
 
-  setToken(token, refresh) {
+  setToken(token, refresh, remember) {
     this.token = token;
     this.refreshtoken = refresh;
-    localStorage.setItem("refreshtoken", refresh);
-    localStorage.setItem("token", token);
+    if (remember) {
+      localStorage.setItem("refreshtoken", refresh);
+      localStorage.setItem("token", token);
+    }
     this.config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -40,18 +42,18 @@ export class ApiManager {
     }
   }
 
-  async login(login, password) {
+  async login(login, password, remember) {
     try {
-      const result = await axios.post(`/api/v1/token/`, {
+      let result = await axios.post(`/api/v1/token/`, {
         username: login,
         password: password,
       });
-      if (result.status !== 200) return false;
-      this.setToken(result.data.access, result.data.refresh);
-      return true;
+      this.setToken(result.data.access, result.data.refresh, remember);
+      return { status: true };
     } catch (ex) {
-      console.log(ex);
-      return false;
+      if (ex?.response?.status)
+        return { status: false, msgs: ["Неправильный логин или пароль"] };
+      return { status: false, msgs: ["Ошибка подключения"] };
     }
   }
   async EditProfile(userInfo) {

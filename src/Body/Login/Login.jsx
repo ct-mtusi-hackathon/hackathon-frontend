@@ -10,14 +10,18 @@ import EditProfile from "../../Pages/EditProfile";
 const Login = (props) => {
   const login = useState("");
   const password = useState("");
-  const remember = useState(false);
+  const remember = useState(true);
 
   const authEvent = async () => {
-    const result = await props.user.trylogin(login[0], password[0]);
+    const result = await props.user.trylogin(
+      login[0],
+      password[0],
+      remember[0]
+    );
     if (result.status)
-      if (props.user.login) props.setCurrentPage(<Main {...props} />);
+      if (props.user.phoneNumber) props.setCurrentPage(<Main {...props} />);
       else props.setCurrentPage(<EditProfile {...props} />);
-    else props.addNotify.current(result.msg);
+    else props.addNotify.current(result.msgs);
   };
 
   return (
