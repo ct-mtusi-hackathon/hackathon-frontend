@@ -28,7 +28,7 @@ const EditProfileInfo = (props) => {
   const photoOpened = useState(false);
 
   const nextEvent = async () => {
-    const new_login = login[0] || email[0];
+    const new_login = login[0] || props.user.login || email[0];
     if (email[0] && phone[0] && password[0] && twopassword[0]) {
       if (password[0] === twopassword[0]) {
         const result = await props.user.tryEdit({

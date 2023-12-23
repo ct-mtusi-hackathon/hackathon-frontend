@@ -1,10 +1,10 @@
-@font-face{
+@font-face {
   font-family: "aqum-2";
-  src : url("./assets/fonts/aqum-2.otf");
+  src: url("./assets/fonts/aqum-2.otf");
 }
-@font-face{
+@font-face {
   font-family: "Myriad Pro";
-  src : url("./assets/fonts/Myriad Pro.ttf");
+  src: url("./assets/fonts/Myriad Pro.ttf");
 }
 body {
   margin: 0;
@@ -16,16 +16,16 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-#root{
+#root {
   width: 100%;
   height: 100%;
 }
 
-html{
+html {
   --first-round: 8px;
   --global-width: 2.25em;
   --background: #fff;
@@ -36,9 +36,8 @@ html{
   --text-color: #fff;
 }
 
-html[data-theme="light"]{
-
-  background: url('./assets/pictures/background_mobile.svg') no-repeat right;
+html[data-theme="light"] {
+  background: url("./assets/pictures/background_mobile.svg") no-repeat right;
   background-size: cover;
   background-position: 0 -10%;
   --header-color: var(--first-color);
@@ -46,20 +45,23 @@ html[data-theme="light"]{
   --title-color: #fff;
   --header-buttons-background: var(--second-color);
   --header-buttons-color: var(--text-color);
-  --header-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
-  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --header-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
+  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
 
   --input-icon-base-color: var(--second-color);
   --input-border-color: var(--second-color);
   --input-require-color: var(--first-color);
-  --input-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --input-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
 
   --buttons-background: var(--second-color);
   --buttons-color: var(--text-color);
 
   --switch-cirle-color: var(--four-color);
-  --switch-background-color: rgba(255,255,255,0.75);
-  --switch-checked-background-color: rgba(0,0,0,0.5);
+  --switch-background-color: rgba(255, 255, 255, 0.75);
+  --switch-checked-background-color: rgba(0, 0, 0, 0.5);
   --switch-border-color: transparent;
 
   --body-title-color: var(--first-color);
@@ -72,16 +74,19 @@ html[data-theme="light"]{
 
   --settings-user-color: var(--first-color);
   --profile-photo-background-color: var(--second-color);
-  --profile-photo-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --profile-photo-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
   --profile-photo-edit-color: var(--first-color);
-  --profile-photo-edit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --profile-photo-edit-filter: invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(121deg) brightness(104%) contrast(104%);
 
   --welcome-name-color: var(--first-color);
   --welcome-group-color: var(--second-color);
   --settings-require-info-color: var(--first-color);
 
   --main-text-color: var(--first-color);
-  --main-burger-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --main-burger-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
 
   --event-background-color: var(--second-color);
   --event-title-color: var(--first-color);
@@ -91,8 +96,9 @@ html[data-theme="light"]{
   --radio-cheked-border-color: var(--four-color);
   --radio-background-color: var(--second-color);
   --radio-text-color: var(--first-color);
-  --event-open-link-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
-  
+  --event-open-link-filter: invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(121deg) brightness(104%) contrast(104%);
+
   --coin-icon-filter: none;
   --event-reward-text-color: var(--first-color);
   --coin-color: #ffab57;
@@ -102,23 +108,25 @@ html[data-theme="light"]{
 
   --menu-background-color: var(--first-color);
   --menu-text-color: #fff;
-
 }
 
-html[data-theme="vimpaired"]{
+html[data-theme="vimpaired"] {
   background: #fff;
   --header-color: transparent;
   --header-line-color: transparent;
   --title-color: #000;
   --header-buttons-background: #000;
   --header-buttons-color: #fff;
-  --header-icon-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
-  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --header-icon-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg)
+    brightness(96%) contrast(104%);
+  --header-eye-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
 
   --input-icon-base-color: #000;
   --input-border-color: #000;
   --input-require-color: #f00;
-  --input-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --input-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
 
   --buttons-background: #000;
   --buttons-color: #fff;
@@ -137,17 +145,19 @@ html[data-theme="vimpaired"]{
 
   --settings-user-color: #000;
   --profile-photo-background-color: #000;
-  --profile-photo-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --profile-photo-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg)
+    brightness(104%) contrast(104%);
   --profile-photo-edit-color: #f00;
-  --profile-photo-edit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(121deg) brightness(104%) contrast(104%);
+  --profile-photo-edit-filter: invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(121deg) brightness(104%) contrast(104%);
 
   --welcome-name-color: #000;
   --welcome-group-color: #000;
   --settings-require-info-color: #f00;
-  
-  --main-text-color: #000;
-  --main-burger-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg) brightness(96%) contrast(104%);;
 
+  --main-text-color: #000;
+  --main-burger-filter: invert(0%) sepia(1%) saturate(3%) hue-rotate(326deg)
+    brightness(96%) contrast(104%);
 
   --coin-icon-filter: hue-rotate(40deg) contrast(150%);
 }

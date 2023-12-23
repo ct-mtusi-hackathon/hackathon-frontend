@@ -42,6 +42,29 @@ export class ApiManager {
     }
   }
 
+  async getEvents() {
+    try {
+      const result = await axios
+        .get(`/api/v1/events/`, this.config)
+        .catch((res) => {
+          let f = [];
+          for (const errs of Object.values(res.response.data)) f.push(...errs);
+          return { status: false, msgs: f };
+        });
+      if (result.status !== 200)
+        return {
+          status: false,
+          msgs:
+            result.msgs.length !== 0
+              ? result.msgs
+              : ["Произошла непредвиденная ошибка!"],
+        };
+      return { status: true, data: result.data };
+    } catch {
+      return { status: false, msgs: ["Не удалось подключиться к серверу!"] };
+    }
+  }
+
   async login(login, password, remember) {
     try {
       let result = await axios.post(`/api/v1/token/`, {
@@ -89,28 +112,32 @@ export class ApiManager {
     }
   }
 
-  async getUserSubscribes(userid) {
+  async getUserSubscribes() {
     try {
       return (
-        await axios.get(
-          `/api/v1/events/${userid}/register_on_event/`,
-          this.config
-        )
+        await axios.get(`/api/v1/users/my_events/`, this.config)
       ).data.map((x) => x.id);
     } catch {
-      return false;
+      return [];
     }
   }
 
-  async subscribedToEvent(eventID) {
+  async subscribeToEvent(eventID, subscribed) {
     try {
-      return (
-        (
-          await axios.get(`/api/v1/events/${eventID}/register_on_event/`, {
-            ...this.config,
-          })
-        ).status === 200
-      );
+      return subscribed
+        ? (
+            await axios.delete(
+              `/api/v1/events/${eventID}/unregister_on_event/`,
+              {
+                ...this.config,
+              }
+            )
+          ).status === 200
+        : (
+            await axios.get(`/api/v1/events/${eventID}/register_on_event/`, {
+              ...this.config,
+            })
+          ).status === 200;
     } catch {
       return false;
     }

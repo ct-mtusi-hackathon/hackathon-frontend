@@ -1,68 +1,68 @@
-.EBTitle{
-    padding-top: 2em;
-    position: relative;
-    bottom: 0.25em;
-    font-family: "aqum-2";
-    font-size: 12pt;
-    color: var(--event-title-color);
+.EBTitle {
+  padding-top: 2em;
+  position: relative;
+  bottom: 0.25em;
+  font-family: "aqum-2";
+  font-size: 12pt;
+  color: var(--event-title-color);
 }
-.EventBorder{
-    width: 80%;
-    position: relative;
+.EventBorder {
+  width: 80%;
+  position: relative;
+  margin: auto;
+  border-radius: var(--first-round);
+  background-color: rgba(#9994b9, 0.4);
+  text-align: left;
+  .EBCurrentEvent {
+    width: 90%;
+    margin-left: 5%;
+    max-height: 75%;
+    .EBCurrentEventTitle {
+      font-family: "aqum-2";
+      color: var(--event-title-color);
+    }
+  }
+  .EBImageBorder {
+    text-align: center;
+    padding-top: 1em;
+    .EBImage {
+      width: 90%;
+    }
+  }
+  .EBThemeText {
+    margin: 0 5%;
+    font-family: "Myriad Pro";
+    color: var(--event-text-color);
+  }
+  .EBButtons {
+    width: 90%;
     margin: auto;
-    border-radius: var(--first-round);
-    background-color: rgba(#9994b9, 0.4);
-    text-align: left;
-    .EBCurrentEvent{
-        width: 90%;
-        margin-left: 5%;
-        max-height: 75%;
-        .EBCurrentEventTitle{
-            font-family: "aqum-2";
-            color: var(--event-title-color);
-        }
+    padding-bottom: 0.1em;
+    padding-top: 0.5em;
+    .Button {
+      display: inline;
+      height: 2.5em;
+      width: calc(100% - 3.5em);
     }
-    .EBImageBorder{
-        text-align: center;
-        padding-top: 1em;
-        .EBImage{
-            width: 90%;
-        }
+    .IconButton {
+      height: 2.5em;
+      width: 2.5em;
+      margin-left: 1em;
+      .ButtonIconImage {
+        filter: var(--event-open-link-filter);
+      }
     }
-    .EBThemeText{
-        margin: 0 5%;
-        font-family: "Myriad Pro";
-        color: var(--event-text-color);
+  }
+  .EBEventRewards {
+    width: max-content;
+    margin: auto;
+    color: var(--event-reward-text-color);
+    padding-bottom: 1em;
+    .EBRewardInfo {
+      font-family: "Myriad Pro";
+      display: inline;
+      font-size: 0.8em;
+      font-weight: bold;
     }
-    .EBButtons{
-        width: 90%;
-        margin: auto;
-        padding-bottom: 0.1em;
-        padding-top: 0.5em;
-        .Button{
-            display: inline;
-            height: 2.5em;
-            width: calc(100% - 3.5em);
-        }
-        .IconButton{
-            height: 2.5em;
-            width: 2.5em;
-            margin-left: 1em;
-            .ButtonIconImage{
-                filter: var(--event-open-link-filter);
-            }
-        }
-    }
-    .EBEventRewards{
-        width: max-content;
-        margin: auto;
-        color: var(--event-reward-text-color);
-        padding-bottom: 1em;
-        .EBRewardInfo{
-            font-family: "Myriad Pro";
-            display: inline;
-            font-size: 9pt;
-            font-weight: bold;
-        }
-    }
+  }
 }

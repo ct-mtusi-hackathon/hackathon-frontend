@@ -34,6 +34,7 @@ const EventBorder = (props) => {
 
     setTouchPosition(null);
   };
+  const subscribed = useState(user.subscribedToEvent(ev.id));
   return (
     <div
       {...props}
@@ -53,8 +54,14 @@ const EventBorder = (props) => {
         <div className="EBThemeText">{ev.Text}</div>
 
         <div className="EBButtons">
-          <Button className="EBSubscribe">
-            {user.subscribedToEvent(ev.id) ? "Отписаться" : "Учавствовать"}
+          <Button
+            className="EBSubscribe"
+            onClick={async () => {
+              await user.subscribeToEvent(ev.id, subscribed[0]);
+              subscribed[1](user.subscribedToEvent(ev.id));
+            }}
+          >
+            {subscribed[0] ? "Отписаться" : "Учавствовать"}
           </Button>
           <IconButton
             className="EBOpenLink"

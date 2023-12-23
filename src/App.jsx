@@ -22,15 +22,16 @@ function App() {
     theme: theme,
   };
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    setCurrentPage(<Login {...props} />);
+    const x = async () => {
       if (await user.restoreSession())
-        if (user.login) setCurrentPage(<Main {...props} />);
+        if (user.phoneNumber) setCurrentPage(<Main {...props} />);
         else setCurrentPage(<EditProfile {...props} />);
       else setCurrentPage(<Login {...props} />);
-    },
-    [theme.theme]
-  );
+    };
+    x();
+  }, []);
   return (
     <div className="App">
       {CurrentPage}

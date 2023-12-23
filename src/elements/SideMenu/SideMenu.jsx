@@ -22,14 +22,7 @@ const SideMenu = (props) => {
   };
   const exitProfile = () => {
     props.user.apiManager.clearTokens();
-    props.setCurrentPage(
-      <Login
-        setCurrentPage={props.setCurrentPage}
-        user={new UserInfo()}
-        theme={props.theme}
-        setTheme={props.setTheme}
-      />
-    );
+    props.setCurrentPage(<Login {...props} user={new UserInfo()} />);
   };
   return (
     <div className="SideMenu">

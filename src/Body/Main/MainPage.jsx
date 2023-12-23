@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MainPage.scss";
 import Modal from "../../elements/Modal/Modal";
 import Button from "../../elements/Button/Button";
@@ -14,32 +14,46 @@ const MainPage = (props) => {
   const skipMessage = useState("");
   const selectedEvent = useState(0);
 
-  const events = [
-    new EventBase(
-      "ЦИПР-2023 Пройдёт с 31 мая по 2 июня  в КТ МТУСИ",
-      `VIII ежегодная конференция «Цифровая индустрия промышленной России» (ЦИПР) пройдетв Нижнем Новгороде с 31 мая по 2 июня 2023года. На ЦИПР представители органов государственной власти и бизнес-сообщества обсудятнаиболее актуальные вопросы развития цифровых технологий в современных условиях.`,
-      new Date(2023, 5, 24),
-      "https://i.imgur.com/NT2cTLB.png",
-      "https://mtuci.ru/about_the_university/news/7561/",
-      150,
-      250
-    ),
-    new EventBase(
-      "В МТУСИ пройдут «Навыки будущего»",
-      `18 мая в 14:00 в Конгресс-центре МТУСИ состоится Фестиваль «Цифровая трансформация. Какие навыки и компетенции нужны для успеха?» в рамках проекта «Навыки будущего» для старшеклассников и обучающихся образовательных организаций среднего профессионального и высшего образования.`,
-      new Date(2023, 6, 1),
-      "https://i.imgur.com/iX0hAQf.png",
-      "https://mtuci.ru/about_the_university/news/7555/",
-      300,
-      500
-    ),
-  ];
+  const events = useState([
+    new EventBase("Нет активных мероприятий", ``, 0, "", "", 0, 0),
+  ]);
+
+  const loadEvents = async () => {
+    const result = await props.user.apiManager.getEvents();
+    if (result.status)
+      if (result.data.length != 0) {
+        events[1](
+          result.data.map(
+            (event) =>
+              new EventBase(
+                event.id,
+                event.title,
+                event.description,
+                Date.parse(event.startDate),
+                event.image.photo,
+                "",
+                event.coinsForRegistration,
+                event.coinsForVictory
+              )
+          )
+        );
+        selectedEvent[1](0);
+      } else {
+        props.addNotify.current(result.msgs);
+        console.log("Повторная попытка загрузить мероприятия");
+        setTimeout(loadEvents, 2500);
+      }
+  };
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
 
   const prev = () => {
     if (selectedEvent[0] > 0) selectedEvent[1](selectedEvent[0] - 1);
   };
   const next = () => {
-    if (selectedEvent[0] < events.length - 1)
+    if (selectedEvent[0] < events[0].length - 1)
       selectedEvent[1](selectedEvent[0] + 1);
   };
 
@@ -47,14 +61,14 @@ const MainPage = (props) => {
     <div className="MainPage">
       {
         <EventBorder
-          eventInfo={events[selectedEvent[0]]}
+          eventInfo={events[0][selectedEvent[0]]}
           user={props.user}
           prev={prev}
           next={next}
         />
       }
       <div className="MPEventsSlider">
-        {events.map((e, i) => (
+        {events[0].map((e, i) => (
           <div
             className={`MPEventSliderDot ${
               i == selectedEvent[0] ? "MPEventSliderDotSelected" : ""
